@@ -159,7 +159,7 @@ func callYoda(c *Counter, rtm RTM, m string) {
 }
 
 func discourseQuery(suffix string, args string) string {
-	return fmt.Sprintf("%s/%s?api_key=%s&api_username=wisemonk&%s",
+	return fmt.Sprintf("%s/%s?api_key=%s&api_username=system&%s",
 		conf.DiscPrefix, suffix, conf.DiscKey, args)
 }
 
@@ -186,7 +186,7 @@ func sanitizeTitle(title string) string {
 	// Discourse requires title to be atleast 20 chars.
 	minLen := 20
 	if len(t) < minLen {
-		t = "Topic created by wisemonk with title: " + t
+		t = "Topic created by nitpicker with title: " + t
 		return t
 	}
 
@@ -629,19 +629,19 @@ func init() {
 		log.Fatal(err)
 	}
 	// We capture the duration using a capturing group.
-	meditateRegex, err = regexp.Compile(`wisemonk meditate for (.+)`)
+	meditateRegex, err = regexp.Compile(`nitpicker meditate for (.+)`)
 	if err != nil {
 		log.Fatal(err)
 	}
-	createRegex, err = regexp.Compile(`wisemonk create topic (.+)`)
+	createRegex, err = regexp.Compile(`nitpicker create topic (.+)`)
 	if err != nil {
 		log.Fatal(err)
 	}
-	queryCountRegex, err = regexp.Compile(`wisemonk query (.+) ([0-9]+)`)
+	queryCountRegex, err = regexp.Compile(`nitpicker query (.+) ([0-9]+)`)
 	if err != nil {
 		log.Fatal(err)
 	}
-	queryRegex, err = regexp.Compile(`wisemonk query (.+)`)
+	queryRegex, err = regexp.Compile(`nitpicker query (.+)`)
 	if err != nil {
 		log.Fatal(err)
 	}
